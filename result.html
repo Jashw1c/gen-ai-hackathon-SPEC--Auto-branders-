@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Brand Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="result-container fade-in">
+
+    <h1 class="result-title">✨ Your Brand Identity</h1>
+
+    <!-- Logo & Brand Info -->
+    <div class="result-card colorful slide-up">
+      <h2>Logo Preview</h2>
+      <div class="logo-display" id="logoDisplay"></div>
+      <h3 id="brandTitle"></h3>
+    </div>
+
+    <!-- Taglines Section -->
+    <div class="result-card slide-up">
+      <h2>💡 Suggested Taglines</h2>
+      <div id="taglinesContainer"></div>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="result-card slide-up">
+      <h2>🎨 Color Palette</h2>
+      <div id="colors"></div>
+    </div>
+
+    <!-- Brand Story -->
+    <div class="result-card slide-up">
+      <h2>📖 Brand Story</h2>
+      <p id="brandStory"></p>
+    </div>
+
+  </div>
+
+  <script>
+    // Get user data from localStorage
+    const name = localStorage.getItem("brandName");
+    const type = localStorage.getItem("brandType");
+    const description = localStorage.getItem("description");
+
+    if(!name || !type || !description){
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>No Data Found. Please go back.</h2>";
+    } else {
+      // Brand title & story
+      document.getElementById("brandTitle").innerText = name;
+      document.getElementById("brandStory").innerText = description;
+
+      // Taglines Generator (5 random per brand type)
+      const taglinesDict = {
+        luxury: ["Elegance Redefined.","Luxury Without Limits.","Where Prestige Meets Style.","Exclusivity Perfected.","Opulence in Every Detail."],
+        fashion: ["Style That Speaks.","Your Fashion, Your Statement.","Trendsetters Unite.","Fashion Forward.","Wear Your Confidence."],
+        tech: ["Innovating The Future.","Smart Solutions, Smart Life.","Tomorrow, Today.","Technology with Vision.","Future-Ready Innovation."],
+        cars: ["Drive Your Passion.","Engineering Excellence.","Feel The Road.","Precision in Motion.","Unleash the Drive."],
+        electric: ["Powering Tomorrow.","Clean Energy, Bold Moves.","Electrify Your Life.","Sustainable Innovation.","Future is Electric."],
+        vintage: ["Timeless Excellence.","Classic Never Fades.","Heritage With Style.","Legends Reimagined.","Vintage with Soul."],
+        startup: ["Ideas Into Action.","Building The Next Big Thing.","Dream. Launch. Grow.","Innovation Unleashed.","From Vision to Reality."],
+        healthcare: ["Caring Through Innovation.","Health Meets Technology.","Better Life, Better Care.","Wellness Simplified.","Innovation in Care."],
+        realestate: ["Your Dream, Our Vision.","Homes That Inspire.","Invest In Life.","Living Redefined.","Spaces that Matter."],
+        food: ["Taste The Passion.","Flavors That Connect.","Savor Every Bite.","Culinary Excellence.","Food with Love."]
+      };
+
+      const taglinesContainer = document.getElementById("taglinesContainer");
+      const taglines = taglinesDict[type] || ["Built For Greatness."];
+      taglines.forEach(line => {
+        const p = document.createElement("p");
+        p.classList.add("tagline");
+        p.innerText = line;
+        taglinesContainer.appendChild(p);
+      });
+
+      // Color Palette Generator (5 colors)
+      function generatePalette(type){
+        const palettes = {
+          luxury: ["#000000","#C6A75E","#ffffff","#FFD700","#A1927D"],
+          fashion: ["#111827","#DB2777","#FBCFE8","#F472B6","#F9A8D4"],
+          tech: ["#0F172A","#2563EB","#22D3EE","#3B82F6","#60A5FA"],
+          cars: ["#1E293B","#DC2626","#F97316","#FACC15","#64748B"],
+          electric: ["#064E3B","#10B981","#A7F3D0","#34D399","#6EE7B7"],
+          vintage: ["#7C2D12","#D97706","#FDE68A","#FBBF24","#A16207"],
+          startup: ["#0F172A","#10B981","#FACC15","#2563EB","#8B5CF6"],
+          healthcare: ["#064E3B","#22D3EE","#CFFAFE","#14B8A6","#06B6D4"],
+          realestate: ["#1E293B","#F97316","#FDE68A","#4ADE80","#22C55E"],
+          food: ["#7C2D12","#F59E0B","#FDE68A","#EA580C","#FCD34D"]
+        };
+        return palettes[type] || ["#334155","#7c3aed","#f59e0b","#10B981","#FBBF24"];
+      }
+
+      const palette = generatePalette(type);
+      const colorsDiv = document.getElementById("colors");
+      palette.forEach(color => {
+        const div = document.createElement("div");
+        div.classList.add("color-box");
+        div.style.backgroundColor = color;
+        colorsDiv.appendChild(div);
+      });
+
+      // Logo
+      const logo = document.getElementById("logoDisplay");
+      logo.style.background = `linear-gradient(135deg, ${palette[0]}, ${palette[1]})`;
+      logo.innerText = "★";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Branders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>🚀 Auto Branders</h1>
+    <p>AI-Powered Brand Identity Generator</p>
+  </header>
+
+  <div class="form-card">
+
+    <input type="text" id="brandName" placeholder="Enter Your Brand Name">
+
+    <label>Select Industry Type</label>
+    <select id="brandType">
+      <option value="">-- Choose Industry --</option>
+      <option value="luxury">Luxury</option>
+      <option value="fashion">Fashion</option>
+      <option value="tech">Technology</option>
+      <option value="cars">Automotive</option>
+      <option value="electric">Electric</option>
+      <option value="vintage">Vintage</option>
+      <option value="startup">Startup</option>
+      <option value="healthcare">Healthcare</option>
+      <option value="realestate">Real Estate</option>
+      <option value="food">Food & Beverage</option>
+    </select>
+
+    <textarea id="description" placeholder="Describe your brand (mission, style, target audience...)"></textarea>
+
+    <button onclick="goToResult()">Generate Brand Identity</button>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

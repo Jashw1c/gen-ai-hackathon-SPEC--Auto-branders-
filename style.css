@@ -1,0 +1,30 @@
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body {background:linear-gradient(135deg,#0f172a,#1e293b);color:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+.container {width:95%;max-width:700px;}
+header {text-align:center;margin-bottom:40px;}
+header h1 {font-size:42px;font-weight:700;}
+header p {color:#cbd5e1;margin-top:10px;}
+.form-card {background:rgba(255,255,255,0.05);padding:40px;border-radius:15px;backdrop-filter:blur(12px);box-shadow:0 10px 40px rgba(0,0,0,0.4);}
+input,select,textarea {width:100%;padding:14px;margin-top:15px;border-radius:8px;border:none;font-size:15px;}
+label {margin-top:20px;display:block;font-weight:600;}
+textarea {height:100px;resize:none;}
+button {margin-top:25px;width:100%;padding:15px;font-size:18px;background:#f97316;color:white;border:none;border-radius:8px;cursor:pointer;transition:0.3s ease;}
+button:hover {background:#ea580c;transform:translateY(-2px);}
+
+/* Result page */
+.result-container{width:95%;max-width:900px;margin:auto;padding:40px 20px;}
+.result-title{text-align:center;margin-bottom:40px;font-size:36px;}
+.result-card{background:rgba(255,255,255,0.05);padding:30px;border-radius:15px;margin-bottom:25px;box-shadow:0 10px 30px rgba(0,0,0,0.4);transition:0.4s ease;}
+.result-card:hover{transform:translateY(-5px);}
+.colorful{background:linear-gradient(135deg,#6366f1,#ec4899);text-align:center;}
+.logo-display{width:150px;height:150px;margin:20px auto;border-radius:20px;display:flex;justify-content:center;align-items:center;font-size:60px;color:white;}
+#colors{display:flex;gap:15px;margin-top:15px;}
+.color-box{width:60px;height:60px;border-radius:8px;transition:0.3s;}
+.color-box:hover{transform:scale(1.1);}
+.tagline{font-size:20px;color:#fef3c7;margin-top:10px;font-weight:500;font-style:italic;animation:fadeIn 1.2s ease forwards;}
+
+/* Animations */
+.fade-in{animation:fadeIn 1s ease forwards;}
+.slide-up{animation:slideUp 0.8s ease forwards;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
